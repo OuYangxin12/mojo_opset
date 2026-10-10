@@ -580,6 +580,8 @@ def swa_infer_impl(
         hfusion_enable_multiple_consumer_fusion=True,
         intra_cache_num=3,
         inter_cache_num=2,
+        enable_dynamic_cv_pipeline=False,
+        enable_preload=True,
     )
     return o
 
@@ -1409,6 +1411,8 @@ def swa_paged_decode_impl(
         page_size,
         BLOCK_SIZE_D=BLOCK_SIZE_D,
         BLOCK_SIZE_N=BLOCK_SIZE_N,
+        enable_dynamic_cv_pipeline=False,
+        enable_preload=True,
     )
     return o
 

@@ -875,6 +875,8 @@ def sdpa_infer_impl(
         intra_cache_num=3,
         inter_cache_num=2,
         **extra_kern_args,
+        enable_dynamic_cv_pipeline=False,
+        enable_preload=True,
     )
     return o
 
@@ -947,7 +949,8 @@ def sdpa_fwd_impl(
         lse.stride(1),
         lse.stride(2),
         limit_auto_multi_buffer_buffer="no-limit",
-        enable_dynamic_cv_pipeline=True,
+        enable_dynamic_cv_pipeline=False,
+        enable_preload=True,
         enable_cube_block_merge=True,
         hfusion_enable_multiple_consumer_fusion=True,
         intra_cache_num=3,
@@ -1285,6 +1288,8 @@ def sdpa_bwd_impl(
             limit_auto_multi_buffer_of_local_buffer="no-l0c",
             intra_cache_num=2,
             inter_cache_num=2,
+            enable_dynamic_cv_pipeline=False,
+            enable_preload=True,
         )
         dk = torch.sum(core_dk, 0)
         dv = torch.sum(core_dv, 0)
@@ -1326,6 +1331,8 @@ def sdpa_bwd_impl(
             unit_flag=True,
             limit_auto_multi_buffer_of_local_buffer="no-l0c",
             intra_cache_num=1,
+            enable_dynamic_cv_pipeline=False,
+            enable_preload=True,
         )
 
         kernel_sdpa_bwd_kv[(num_cores,)](

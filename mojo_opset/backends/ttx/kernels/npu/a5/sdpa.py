@@ -869,7 +869,6 @@ def sdpa_infer_impl(
         tile_mix_vector_loop=8,
         tile_mix_cube_loop=4,
         limit_auto_multi_buffer_buffer="no-limit",
-        enable_dynamic_cv_pipeline=True,
         enable_cube_block_merge=True,
         hfusion_enable_multiple_consumer_fusion=True,
         intra_cache_num=3,

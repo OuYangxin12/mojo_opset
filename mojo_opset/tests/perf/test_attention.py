@@ -336,6 +336,7 @@ def generate_paged_prefill_data(
 test_configs_prefill = [
     #(2, 16, 4, 128, 1024, 0, 32, torch.bfloat16, "M_BF16"), ub overflow when enable preload
     (2, 16, 4, 128, 1024, 0, 128, torch.bfloat16, "M_BF16_PADDIM"),
+    (2, 16, 4, 128, 1024, 0, 64, torch.bfloat16, "M_BF16_BLK64"),
     (2, 8, 1, 128, 4096, 8192, 128, torch.bfloat16, "M_BF16_WITH_CACHE"),
     (2, 8, 1, 128, 1024, 2048, 1024, torch.bfloat16, "M_BF16_BIGPAGE"),
     (2, 8, 1, 128, 0, 0, 1024, torch.bfloat16, "M_BF16_PADSEQ"),
